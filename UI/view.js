@@ -6,13 +6,13 @@ export default class View extends Component{
 
     constructor(props){
         super(props);
-        this.state = {student: []};
+        this.state = {user: []};
     }
 
     componentDidMount(){
         axios.get('http://localhost/bizlogic/view.php')
         .then(response => {
-            this.setState({student: response.data});
+            this.setState({user: response.data});
         })
         .catch(function(error){
             console.log(error);
@@ -20,7 +20,7 @@ export default class View extends Component{
     }
 
     usersList(){
-        return this.state.student.map(function(object, i){
+        return this.state.user.map(function(object, i){
             return <RecordsList obj = {object} key = {i}/>
         });
     }
@@ -37,7 +37,7 @@ export default class View extends Component{
                                     <th>name</th>
                                     <th>User Name</th>
                                     <th>Email</th>
-                                    <th colSpan="2">Action</th>
+                                   
                                 </tr>   
                             </thead> 
                             <tbody>
